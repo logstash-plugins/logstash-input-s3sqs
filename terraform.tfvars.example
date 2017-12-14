@@ -1,0 +1,4 @@
+name          = "logstash"
+owner         = "logstash"
+s3_bucket     = "my-lovely-bucket-yo"
+github_handle = "pmoust"

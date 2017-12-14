@@ -1,0 +1,30 @@
+#cloud-config
+
+coreos:
+  update:
+    reboot-strategy: "off"
+  units:
+    - name: etcd2.service
+      command: stop
+    - name: fleet.service
+      command: stop
+    - name: flanneld.service
+      command: stop
+
+    - name: nginx.service
+      command: start
+      enable: true
+      type: simple
+      content: |
+        [Unit]
+        Description=Runs nginx
+        After=docker.service
+        [Service]
+        ExecStart=/usr/bin/docker run --name nginx -p 8000:80 nginx
+        ExecStop=/usr/bin/docker stop nginx
+        ExecStop=/usr/bin/docker rm -f nginx
+
+users:
+  - name: core
+    coreos-ssh-import-github: ${github_handle}
+
