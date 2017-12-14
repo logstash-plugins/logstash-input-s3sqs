@@ -2,3 +2,6 @@
 Gemfile.lock
 .bundle
 vendor
+terraform.tfvars
+terraform.tfstate*
+.terraform*
