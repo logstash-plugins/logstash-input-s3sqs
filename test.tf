@@ -11,6 +11,10 @@ output "elb_dns_name" {
   value = "${module.infra.elb_dns_name}"
 }
 
+output "sqs_url" {
+  value = "${module.infra.sqs_url}"
+}
+
 module "infra" {
   source = "./infra"
 
