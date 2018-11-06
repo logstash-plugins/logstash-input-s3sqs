@@ -6,6 +6,9 @@ require "logstash/timestamp"
 require "logstash/plugin_mixins/aws_config"
 require "logstash/errors"
 
+# https://aws.amazon.com/blogs/developer/threading-with-the-aws-sdk-for-ruby/.
+# Aws.eager_autoload!
+
 # Get logs from AWS s3 buckets as issued by an object-created event via sqs.
 #
 # This plugin is based on the logstash-input-sqs plugin but doesn't log the sqs event itself.
