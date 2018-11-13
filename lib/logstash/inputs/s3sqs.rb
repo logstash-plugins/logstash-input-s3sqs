@@ -5,9 +5,10 @@ require "logstash/namespace"
 require "logstash/timestamp"
 require "logstash/plugin_mixins/aws_config"
 require "logstash/errors"
+require "aws-sdk"
 
 # https://aws.amazon.com/blogs/developer/threading-with-the-aws-sdk-for-ruby/.
-# Aws.eager_autoload!
+Aws.eager_autoload!
 
 # Get logs from AWS s3 buckets as issued by an object-created event via sqs.
 #
@@ -94,7 +95,6 @@ class LogStash::Inputs::S3SQS < LogStash::Inputs::Threadable
   attr_reader :s3
 
   def register
-    require "aws-sdk"
     @logger.info("Registering SQS input", :queue => @queue)
     setup_queue
   end
