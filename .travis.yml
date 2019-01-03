@@ -1,9 +1,10 @@
 ---
 sudo: false
 env:
-  - LOGSTASH_VERSION=6.4.3
-  - LOGSTASH_VERSION=5.6.12
-  - LOGSTASH_VERSION=7.0.0-alpha1-SNAPSHOT
+- LOGSTASH_VERSION=6.4.3
+- LOGSTASH_VERSION=5.6.12
+- LOGSTASH_VERSION=7.0.0-alpha1-SNAPSHOT
 install: ci/setup.sh
 script: ci/build.sh
 jdk: oraclejdk8
+before_install: gem install bundler -v '< 2'
