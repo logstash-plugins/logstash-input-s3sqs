@@ -1,3 +1,6 @@
+# 2.1.0
+ - added option to configure polling frequency and number of messages to fetch in one batch to be able to manage AWS SQS cost
+
 # 2.0.0
  - added support for Logstash 6.x.
 
